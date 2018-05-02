@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Tileset/plains_tile.png" type="Texture" id=1]
+[ext_resource path="res://Tileset/woodlands_tile.png" type="Texture" id=2]
+[ext_resource path="res://Tileset/castle_red_tile.png" type="Texture" id=3]
+[ext_resource path="res://Tileset/housing_tile.png" type="Texture" id=4]
+
+[node name="Tileset" type="Node" index="0"]
+
+[node name="plains" type="Sprite" parent="." index="0"]
+
+position = Vector2( 369.054, 160.362 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Offset" ]
+
+[node name="woodlands_tile" type="Sprite" parent="." index="1"]
+
+position = Vector2( 399.024, 144.295 )
+texture = ExtResource( 2 )
+
+[node name="castle_red_tile" type="Sprite" parent="." index="2"]
+
+position = Vector2( 459.829, 205.237 )
+texture = ExtResource( 3 )
+
+[node name="housing_tile" type="Sprite" parent="." index="3"]
+
+position = Vector2( 426.282, 222.733 )
+texture = ExtResource( 4 )
+
+
