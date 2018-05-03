@@ -2,7 +2,7 @@
 
 [ext_resource path="res://tileset.tres" type="TileSet" id=1]
 
-[node name="WorldMap" type="TileMap" index="0"]
+[node name="WorldMap" type="TileMap"]
 
 position = Vector2( 494.05, 9.66913 )
 mode = 1

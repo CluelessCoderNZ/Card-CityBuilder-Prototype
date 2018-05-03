@@ -5,7 +5,7 @@
 [ext_resource path="res://Tileset/castle_red_tile.png" type="Texture" id=3]
 [ext_resource path="res://Tileset/housing_tile.png" type="Texture" id=4]
 
-[node name="Tileset" type="Node" index="0"]
+[node name="Tileset" type="Node"]
 
 [node name="plains" type="Sprite" parent="." index="0"]
 

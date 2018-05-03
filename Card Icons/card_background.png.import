@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/plains_tile.png-076e8f64e58ec913574aec2fa5126b6d.stex"
+path="res://.import/card_background.png-0ab8bc455545c2848be69ddff5d20e4c.stex"
 
 [deps]
 
-source_file="res://Tileset/plains_tile.png"
-source_md5="82b3f52e1b91189b4d707b1f4e14199b"
+source_file="res://Card Icons/card_background.png"
+source_md5="b8c91cef0da89773dabac71b9790880b"
 
-dest_files=[ "res://.import/plains_tile.png-076e8f64e58ec913574aec2fa5126b6d.stex" ]
-dest_md5="c6ecc96a60d1842aa32413de84dd37a0"
+dest_files=[ "res://.import/card_background.png-0ab8bc455545c2848be69ddff5d20e4c.stex" ]
+dest_md5="468e3ddd3918b1d8ea2bfd2872300ca2"
 
 [params]
 
