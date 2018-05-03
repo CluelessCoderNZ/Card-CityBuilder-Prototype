@@ -25,7 +25,7 @@ texture = ExtResource( 3 )
 
 [node name="housing_tile" type="Sprite" parent="." index="3"]
 
-position = Vector2( 426.282, 222.733 )
+position = Vector2( 428.483, 219.212 )
 texture = ExtResource( 4 )
 
 

@@ -1,0 +1,128 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Card Icons/card_background.png" type="Texture" id=1]
+[ext_resource path="res://Fonts/Ancient Medium.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Tileset/housing_tile.png" type="Texture" id=3]
+
+[sub_resource type="GDScript" id=3]
+
+script/source = "extends Node2D
+
+export (String) var CARD_TITLE
+export (String, MULTILINE) var CARD_DESCRIPTION
+
+var home_position = Vector2(get_viewport().get_rect().size.x / 2.0, get_viewport().get_rect().size.y / 2.0)
+var return_home = true
+
+func _ready():
+	$Title.text = CARD_TITLE
+	$Description.bbcode_text = CARD_DESCRIPTION
+	pass
+
+func _process(delta):
+	# Called every frame. Delta is time since last frame.
+	# Update game logic here.
+	pass
+"
+
+[sub_resource type="DynamicFont" id=1]
+
+size = 92
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
+_sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=2]
+
+size = 64
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[node name="Default Card" type="KinematicBody2D" index="0" groups=[
+"GameCard",
+]]
+
+scale = Vector2( 0.2, 0.2 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = SubResource( 3 )
+_sections_unfolded = [ "Transform" ]
+CARD_TITLE = "Default"
+CARD_DESCRIPTION = "[center]No description[/center]"
+
+[node name="card_background" type="Sprite" parent="." index="0"]
+
+position = Vector2( -2.27209, 0 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Title" type="Label" parent="." index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -268.0
+margin_top = -434.0
+margin_right = 253.0
+margin_bottom = -330.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+text = "Title"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Description" type="RichTextLabel" parent="." index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -263.0
+margin_top = -10.0
+margin_right = 256.0
+margin_bottom = 317.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/normal_font = SubResource( 2 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "[center]Description[/center]"
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Description"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "BBCode", "custom_colors" ]
+
+[node name="housing_tile" type="Sprite" parent="." index="3"]
+
+position = Vector2( 0, -240 )
+scale = Vector2( 6.92571, 6.92571 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Offset", "Transform" ]
+
+
