@@ -2,9 +2,11 @@ extends Node
 
 # Card Loading
 var CARD_DEFAULT = load("res://Cards/DefaultCard.tscn")
+var CARD_HOUSING = load("res://Cards/HousingCard.tscn")
 
 # Card List
-var CARD_LIST = [CARD_DEFAULT]
+var CARD_LIST =    [CARD_DEFAULT,
+					CARD_HOUSING]
 
 func get_card_count():
 	return CARD_LIST.size()

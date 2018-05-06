@@ -7,10 +7,10 @@ path="res://.import/housing_tile.png-edc7e5f6210ae63166e9aa1f09b2b322.stex"
 [deps]
 
 source_file="res://Tileset/housing_tile.png"
-source_md5="d5b5e17f93b8a85c40fc625f00997895"
+source_md5="9259ebb3db9ae60b0c99373704b969f8"
 
 dest_files=[ "res://.import/housing_tile.png-edc7e5f6210ae63166e9aa1f09b2b322.stex" ]
-dest_md5="a89b6816c7f6cac9596a224d1c176bc4"
+dest_md5="2ec453674500fb3d854546e59f11075d"
 
 [params]
 

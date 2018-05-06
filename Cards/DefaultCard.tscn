@@ -6,23 +6,23 @@
 [ext_resource path="res://Card Icons/card_background.png" type="Texture" id=4]
 [ext_resource path="res://Fonts/Ancient Medium.ttf" type="DynamicFontData" id=5]
 
-[sub_resource type="ShaderMaterial" id=9]
+[sub_resource type="ShaderMaterial" id=1]
 
 render_priority = 0
 shader = ExtResource( 1 )
 shader_param/override_colour = null
 shader_param/use_override = null
-shader_param/burn_highlight_colour = Color( 0.992188, 0, 1, 1 )
-shader_param/burn_colour = Color( 0.675781, 0, 1, 1 )
+shader_param/burn_highlight_colour = Color( 0.929688, 0.876575, 0.079895, 1 )
+shader_param/burn_colour = Color( 0.171875, 1, 0, 1 )
 shader_param/burnt_colour = null
-shader_param/dissolve_precentage = 0.557246
+shader_param/dissolve_precentage = 0.0
 shader_param/burn_highlight_width = 0.05
 shader_param/burn_width = 0.05
 shader_param/burnt_width = 0.1
 shader_param/noise_texture = ExtResource( 2 )
 _sections_unfolded = [ "Resource", "shader_param" ]
 
-[sub_resource type="GDScript" id=10]
+[sub_resource type="GDScript" id=2]
 
 script/source = "extends Node2D
 
@@ -30,6 +30,7 @@ script/source = "extends Node2D
 export (String) var CARD_TITLE
 export (String, MULTILINE) var CARD_DESCRIPTION
 export (Texture) var CARD_IMAGE
+export (int) var CARD_TILE_ID
 
 # Signals
 signal on_grab(card)
@@ -81,14 +82,14 @@ func _input(event):
 		if is_selected:
 			is_selected = false
 			emit_signal(\"on_release\", self)
-			self.z_index = 2
+			self.z_index = 3
 
 
 func _on_Area_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.pressed and event.button_index == BUTTON_LEFT and is_interactable:
 		_on_Card_mouse_exited()
 		is_selected = true
-		self.z_index = 2
+		self.z_index = 3
 		emit_signal(\"on_grab\", self)
 		get_tree().set_input_as_handled()
 
@@ -107,7 +108,7 @@ use_filter = true
 font_data = ExtResource( 5 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=4]
 
 size = 64
 use_mipmaps = true
@@ -115,16 +116,16 @@ use_filter = true
 font_data = ExtResource( 5 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=5]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=6]
 
 resource_name = "Card Burn"
 length = 1.0
-loop = true
+loop = false
 step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:material:shader_param/dissolve_precentage")
@@ -151,7 +152,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, -150 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=7]
 
 length = 0.4
 loop = false
@@ -181,35 +182,29 @@ tracks/1/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, -180 ), Vector2( 0, -135 ) ]
 }
 
-[node name="Card" type="Node2D" index="0" groups=[
+[node name="Card" type="Node2D" groups=[
 "GameCard",
 ]]
 
-material = SubResource( 9 )
-z_index = 1
-script = SubResource( 10 )
+material = SubResource( 1 )
+z_as_relative = false
+script = SubResource( 2 )
 _sections_unfolded = [ "Material", "Pickable", "Transform", "Visibility", "Z Index" ]
 CARD_TITLE = "Title"
 CARD_DESCRIPTION = "Description"
 CARD_IMAGE = ExtResource( 3 )
+CARD_TILE_ID = null
 
-[node name="Area" type="Area2D" parent="." index="0"]
+[node name="Area" type="KinematicBody2D" parent="." index="0"]
 
 use_parent_material = true
-position = Vector2( 0, -85.7055 )
 scale = Vector2( 0.2, 0.2 )
 z_index = 1
 input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
 _sections_unfolded = [ "Material", "Pickable", "Transform", "Z Index" ]
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Background" type="Sprite" parent="Area" index="0"]
 
@@ -262,7 +257,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/normal_font = SubResource( 5 )
+custom_fonts/normal_font = SubResource( 4 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 bbcode_text = "[center][color=red]Description[/color][/center]"
@@ -289,7 +284,7 @@ _sections_unfolded = [ "Material", "Offset", "Transform" ]
 visible = false
 position = Vector2( -2.56183, 1.35187 )
 scale = Vector2( 31.8943, 45.1356 )
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
 
@@ -298,8 +293,8 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-"anims/Card Burn" = SubResource( 7 )
-anims/Mouse_Hover = SubResource( 8 )
+"anims/Card Burn" = SubResource( 6 )
+anims/Mouse_Hover = SubResource( 7 )
 blend_times = [  ]
 _sections_unfolded = [ "Playback Options" ]
 

@@ -4,18 +4,15 @@ var card_size = 130
 var card_count = 0
 
 func _ready():
-	add_card(0)
-	add_card(0)
-	add_card(0)
-	add_card(0)
-	add_card(0)
+	add_card(1)
+	add_card(1)
+	add_card(1)
 	
 func get_card_home_position(index):
-	var viewport_size = get_viewport().size
-	var hand_width = card_size * card_count
+	var hand_width = card_size * (card_count)
 	var offsetX = index * card_size
 	
-	return Vector2(viewport_size.x / 2.0 - hand_width / 2.0 + offsetX, viewport_size.y)
+	return Vector2(offsetX - hand_width/2.0 + card_size / 2.0, 0)
 
 func reset_card_positions():
 	var index = 0

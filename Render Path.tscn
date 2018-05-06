@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Shaders/dissolve.shader" type="Shader" id=1]
+
+[sub_resource type="ShaderMaterial" id=2]
+
+render_priority = 0
+shader = ExtResource( 1 )
+shader_param/override_colour = null
+shader_param/use_override = null
+shader_param/burn_highlight_colour = null
+shader_param/burn_colour = null
+shader_param/burnt_colour = null
+shader_param/dissolve_precentage = null
+shader_param/burn_highlight_width = null
+shader_param/burn_width = null
+shader_param/burnt_width = null
+
+[sub_resource type="Curve2D" id=1]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 62.5191, 82.9507, 43.4031, -43.4031, -114.604, 122.407, 137.694, 105.153, -75.5897, 34.1373, 90.22, -48.2799, 139.188, 159.717, 116.067, 37.551, 0, 0, 184.964, 285.103 )
+}
+_sections_unfolded = [ "Resource" ]
+
+[node name="Path" type="Path2D" index="0"]
+
+material = SubResource( 2 )
+position = Vector2( 4.24275, 17.098 )
+curve = SubResource( 1 )
+_sections_unfolded = [ "Material" ]
+
+[node name="PathFollow2D" type="PathFollow2D" parent="." index="0"]
+
+position = Vector2( -10.8378, -113.464 )
+rotation = 3.08271
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = true
+cubic_interp = true
+loop = true
+lookahead = 4.0
+
+

@@ -7,10 +7,10 @@ path="res://.import/plains_tile.png-076e8f64e58ec913574aec2fa5126b6d.stex"
 [deps]
 
 source_file="res://Tileset/plains_tile.png"
-source_md5="82b3f52e1b91189b4d707b1f4e14199b"
+source_md5="f7f682e020a694724438c7d7c9d22c64"
 
 dest_files=[ "res://.import/plains_tile.png-076e8f64e58ec913574aec2fa5126b6d.stex" ]
-dest_md5="c6ecc96a60d1842aa32413de84dd37a0"
+dest_md5="ba84ec5e0d4b11532eb955cfd9a8d055"
 
 [params]
 

@@ -7,10 +7,10 @@ path="res://.import/castle_red_tile.png-651af6b042c06bbc71bf27836cdc0df7.stex"
 [deps]
 
 source_file="res://Tileset/castle_red_tile.png"
-source_md5="37bfe0f3939bcb894c9811d69fc00d5e"
+source_md5="19c9063b063ee48bf2a623e365b5e8e6"
 
 dest_files=[ "res://.import/castle_red_tile.png-651af6b042c06bbc71bf27836cdc0df7.stex" ]
-dest_md5="4f196235a72811fcdb7312061a6b97ce"
+dest_md5="3aba073ed15da08b0ef3127e92ebf33d"
 
 [params]
 
